@@ -21,7 +21,7 @@ deploy:
     token: "$GITHUB_TOKEN"
     local_dir: "./sphinx/"
     on:
-      branch: master
+      tags: true
       condition: "$TRAVIS_PYTHON_VERSION = 3.8"
   - provider: pypi
     server: https://test.pypi.org/legacy/ # Remove to deployment on pypi.org
