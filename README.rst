@@ -1,5 +1,5 @@
-.. image:: https://travis-ci.org/idiap/mai-m05-ex6.svg?branch=master
-   :target: https://travis-ci.org/github/idiap/mai-m05-ex6
+.. image:: https://github.com/idiap/mai-m05-ex5/actions/workflows/ci.yml/badge.svg?branch=master
+   :target: https://github.com/idiap/mai-m05-ex5/actions/workflows/ci.yml
 .. image:: https://coveralls.io/repos/github/idiap/mai-m05-ex6/badge.svg?branch=master
    :target: https://coveralls.io/github/idiap/mai-m05-ex6?branch=master
 .. image:: https://img.shields.io/badge/docs-latest-orange.svg
