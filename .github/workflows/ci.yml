@@ -56,11 +56,11 @@ jobs:
           rr-paper --case=2  #filter by case
 
       - name: Build documentation
+        if: ${{ matrix.python-version == '3.9' }}  #builds only one variant
         shell: bash -l {0}
         run: |
           sphinx-build doc sphinx  #generates html version of docs
           touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
-          coverage html -d sphinx/coverage  #dump coverage report into doc tree
 
       - name: Upload coverage to coveralls.io
         shell: bash -l {0}
