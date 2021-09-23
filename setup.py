@@ -11,7 +11,7 @@ def load_requirements(f):
 
 setup(
     name="rr",
-    version="1.0.1",
+    version="2.0.0",
     description="Basic example of a Reproducible Research Project in Python",
     url="https://github.com/idiap/mai-m05-ex6",
     license="BSD",
