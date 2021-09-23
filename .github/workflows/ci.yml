@@ -86,7 +86,7 @@ jobs:
         if: ${{ matrix.python-version == '3.9' }}
         shell: bash -l {0}
         run: |
-          python -m build --sdist --outdir dist/ .
+          python setup.py sdist --formats=zip
 
       - name: Deploy package to TestPyPI
         # deploys only one variant, and if it is tagged
