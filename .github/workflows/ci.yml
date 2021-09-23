@@ -55,19 +55,12 @@ jobs:
       - name: Run all tests
         shell: bash -l {0}
         run: |
-          pytest -sv --cov=. test.py
           sphinx-build -b doctest doc sphinx  #runs doctests
           rr-paper --help  #checks help function works at least
           rr-paper  #basic test case
           rr-paper --protocol=proto2  #filter by protocol
           rr-paper --case=2  #filter by case
-
-      - name: Build documentation
-        if: ${{ matrix.python-version == '3.9' }}  #builds only one variant
-        shell: bash -l {0}
-        run: |
-          sphinx-build doc sphinx  #generates html version of docs
-          touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
+          pytest -sv --cov=. test.py
 
       - name: Upload coverage to coveralls.io
         shell: bash -l {0}
@@ -78,6 +71,13 @@ jobs:
         run: |
           conda info -a
           coveralls --service=github
+
+      - name: Build documentation
+        if: ${{ matrix.python-version == '3.9' }}  #builds only one variant
+        shell: bash -l {0}
+        run: |
+          sphinx-build doc sphinx  #generates html version of docs
+          touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
 
       - name: Deploy documentation to GitHub Pages
         if: ${{ matrix.python-version == '3.9' }}  #deploys only one variant
