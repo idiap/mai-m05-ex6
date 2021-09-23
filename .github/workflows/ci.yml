@@ -31,21 +31,28 @@ jobs:
         uses: actions/checkout@v2
 
       # Action provided by 'conda-incubator' to setup conda env
-      - name: Setup Python ${{ matrix.python-version }}
+      - name: Install Python ${{ matrix.python-version }}
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
 
+      # Default action: run something (prepares the Python environment)
+      - name: Prepare Python ${{ matrix.python-version }}
+        shell: bash -l {0}
+        run: |
+          python -m pip install --upgrade pip
+          pip install wheel
+
       # Default action: run something
-      - name: Installs dependencies for Python ${{ matrix.python-version }}
+      - name: Install package and build dependencies for Python ${{ matrix.python-version }}
         shell: bash -l {0}
         run: |
           pip install .
           pip install -r build-requirements.txt  #only required for CI tests
 
       # Default action: run something
-      - name: Run tests
+      - name: Run all tests
         shell: bash -l {0}
         run: |
           pytest -sv --cov=. test.py
