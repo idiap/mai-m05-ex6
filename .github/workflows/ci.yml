@@ -80,7 +80,7 @@ jobs:
           touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
 
       - name: Deploy documentation to GitHub Pages
-        if: ${{ matrix.python-version == '3.9' }}  #deploys only one variant
+        if: ${{ matrix.python-version == '3.9' && startsWith(github.ref, 'refs/tags') }}
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
