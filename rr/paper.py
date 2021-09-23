@@ -118,20 +118,20 @@ examples:
 
     1. Returns all tables in the original report:
 
-       $ python paper.py
+       $ rr-paper
 
     2. Only prints results for protocol "proto2":
 
-       $ python paper.py --protocol=proto2
+       $ rr-paper --protocol=proto2
 
     3. Only prints results for protocol "proto1" and combinations of
        variables 3 by 3:
 
-       $ python paper.py --protocol=proto1 --case=3
+       $ rr-paper --protocol=proto1 --case=3
     """
 
     parser = argparse.ArgumentParser(
-        usage="python %(prog)s [options]",
+        usage="%(prog)s [options]",
         description="Performs Logistic Regression on Iris Flowers Dataset",
         epilog=example_doc,
         formatter_class=argparse.RawDescriptionHelpFormatter,
