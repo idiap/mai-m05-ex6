@@ -57,8 +57,7 @@ jobs:
           rr-paper --protocol=proto2  #filter by protocol
           rr-paper --case=2  #filter by case
           sphinx-build -b doctest doc sphinx  #runs doctests
-          mkdir tmp && cd tmp
-          pytest -sv --cov=rr --pyargs rr
+          pytest -sv --cov=rr rr
           coveralls --service=github
 
       - name: Build documentation
