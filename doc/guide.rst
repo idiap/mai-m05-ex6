@@ -160,7 +160,7 @@ number as printed on the output.  It does not affect the method.
 .. testcode::
 
    from rr import paper
-   paper.infer_impact_of_variables_single(1)
+   paper.infer_impact_of_variables_single(1, protocols=["proto1", "proto2"])
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
@@ -190,7 +190,7 @@ number as printed on the output.  It does not affect the method.
 .. testcode::
 
    from rr import paper
-   paper.infer_impact_of_variables_2by2(1)
+   paper.infer_impact_of_variables_2by2(1, protocols=["proto1", "proto2"])
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
@@ -224,7 +224,7 @@ number as printed on the output.  It does not affect the method.
 .. testcode::
 
    from rr import paper
-   paper.infer_impact_of_variables_3by3(1)
+   paper.infer_impact_of_variables_3by3(1, protocols=["proto1", "proto2"])
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
@@ -254,7 +254,7 @@ number as printed on the output.  It does not affect the method.
 .. testcode::
 
    from rr import paper
-   paper.infer_impact_of_variables_all(1)
+   paper.infer_impact_of_variables_all(1, protocols=["proto1", "proto2"])
 
 .. testoutput::
    :options: +NORMALIZE_WHITESPACE
