@@ -5,20 +5,20 @@
 Troubleshooting
 ---------------
 
-You can run unit tests I have prepared like this (install nose_ first):
+You can run unit tests I have prepared like this (install pytest_ first):
 
 
-.. code-block:: shell
+.. code:: sh
 
-  # use your package manager to install the package "nose"
+  # use your package manager to install the package "pytest"
   # here, I examplify with "pip":
-  $ pip install nose
-  $ nosetests rr
-  ....
-  ----------------------------------------------------------------------
-  Ran 4 tests in 0.002s
+  $ pip install pytest
+  $ pytest rr
+    ...
 
-  OK
+    rr/test_analysis.py ....                                                [100%]
+
+   =============================== 4 passed in 0.18s ================================
 
 In case of problems, please get in touch with me `by e-mail
 <mailto:john.doe@example.com>`_.
