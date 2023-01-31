@@ -61,14 +61,14 @@ jobs:
           coveralls --service=github
 
       - name: Build documentation
-        if: ${{ matrix.python-version == '3.9' }}  #builds only one variant
+        if: ${{ matrix.python-version == '3.10' }}  #builds only one variant
         shell: bash -l {0}
         run: |
           sphinx-build doc sphinx  #generates html version of docs
           touch sphinx/.nojekyll  #pages to be deployed are NOT a Jekyll site
 
       - name: Deploy documentation to GitHub Pages
-        if: ${{ matrix.python-version == '3.9' && startsWith(github.ref, 'refs/tags') }}
+        if: ${{ matrix.python-version == '3.10' && startsWith(github.ref, 'refs/tags') }}
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
@@ -78,15 +78,15 @@ jobs:
 
       - name: Build PyPI (source) package
         # builds only from one variant
-        if: ${{ matrix.python-version == '3.9' }}
+        if: ${{ matrix.python-version == '3.10' }}
         shell: bash -l {0}
         run: |
           python setup.py sdist
 
       - name: Deploy package to TestPyPI
         # deploys only one variant, and if it is tagged
-        if: ${{ matrix.python-version == '3.9' && startsWith(github.ref, 'refs/tags') }}
-        uses: pypa/gh-action-pypi-publish@master
+        if: ${{ matrix.python-version == '3.10' && startsWith(github.ref, 'refs/tags') }}
+        uses: pypa/gh-action-pypi-publish@v1
         with:
           password: ${{ secrets.TEST_PYPI_API_TOKEN }}
           repository_url: https://test.pypi.org/legacy/
